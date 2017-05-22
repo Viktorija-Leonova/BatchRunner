@@ -1,0 +1,47 @@
+  body {
+    color: purple;
+    background-color: #ffffff }
+	div.title{
+	margin-left:45%;
+	}
+	div #container1, div #info{	
+	float:left;
+	width: 100%;
+	margin-bottom:5%;
+	}
+	div #container2, div #history{	
+	
+	width: 100%;
+	float:left;
+	}
+	div.filter{
+	float:left;
+	}
+	div.myruns, div.environments, div.run{
+	float:right;
+	}
+	div.tabcontent, div.input, div.hints{
+	float:left;
+	width: 100%;
+	overflow:auto;
+	}
+	div.tab{
+	float:left;
+	width: 100%;
+	}
+	
+	div.tab a.batchhref:hover {
+    background-color: #000000;
+}
+
+/* Create an active/current tablink class */
+	div.tab a.batchhref:active {
+    background-color: #ccc000;
+}
+
+div .input input[type='input']{
+  display: list-item;
+  list-style: none;
+  margin-bottom:10px;
+}
+	

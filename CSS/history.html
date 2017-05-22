@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Batches. HISTORY</title>
+	 <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="main.css">
+	 <link rel="stylesheet" href="categories.css">
+	 <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+<!-- Site navigation menu -->
+<div class="navbar">
+<ul class="navbar">
+  <li><a href="index.html">Batch history</a>
+  <li><a href="batchXXX.html">Batch page</a>
+  <li><a href="history.html">History</a>
+  <li><a href="logs.html">Logs</a>
+</ul>
+</div>
+
+
+<!-- Main content -->
+
+<div class="title">
+<h1>Waypoint Batch History</h1>
+</div>
+
+<div id="info">
+	<div class="environments">
+	<form>
+	<button class="tablinks" onclick="openCategory(event, 'STEST')">STEST</button>
+	<button class="tablinks" onclick="openCategory(event, 'ATEST')">ATEST</button>
+    <button class="tablinks" onclick="openCategory(event, 'Change Set Test Main')">Change Set Test Main</button>
+	</form>
+	</div>
+	<div class="input">
+	<form>
+	  Parameter1:<input type="input" name="parameter1" value="parameter1">
+	  Parameter2:<input type="input" name="parameter2" value="parameter2">
+	  Parameter3:<input type="input" name="parameter3" value="parameter3">	  
+	</form>
+	</div>
+
+	<div class="hints">
+	<form>
+	<fieldset>
+	<legend>Hints:</legend>
+	<textarea>Lorem ipsum...</textarea>
+	<fieldset>
+	</form>
+	</div>
+	
+	<div class="run">
+	<form>
+	  <input type="submit" name="run" value="Run">
+	</form>
+	</div>
+</div>
+
+<div id="history" class="tabcontent">
+
+  
+  
+  <table class="historytable" style="width: 100%; height: 100%;" border="1">
+<tr>
+	<th>Environment</th><th>Ran by</th><th>Param 1</th><th>Param 2</th><th>Param 3</th><th>Status</th><th>Timestamp</th>
+</tr>
+<tr>
+	<td>Environment</td><td>Ran by</td><td>Param 1</td><td>Param 2</td><td>Param 3</td><td>Status</td><td>Timestamp</td>
+</tr>
+
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

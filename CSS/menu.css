@@ -1,0 +1,24 @@
+/* Style the tab */
+div.navbar {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+
+/* Change background color of buttons on hover */
+div.navbar a:hover {
+    background-color: #000000;
+}
+
+/* Create an active/current tablink class */
+div.navbar a:active {
+    background-color: #ccc;
+}
+
+div.navbar li {
+display:inline;
+padding-right: 20px;
+}
+
