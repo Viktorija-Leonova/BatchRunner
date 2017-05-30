@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Waypoint Batch History</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+  
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Waypoint batch runner</a></li>
+      <li><a href="#">Batch page</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="#">Logs</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="title text-center">
+<h2>Waypoint Batch History</h2>
+</div>
+	
+<br/>
+
+
+  
+<div class="btn-group col-md-4 col-md-offset-8" role="group" aria-label="...">
+	<button type="button" class="btn btn-default">STEST</button>
+	<button type="button" class="btn btn-default">ATEST</button>
+	<button type="button" class="btn btn-default">Change Set Test Main</button>
+</div>
+  
+<br>
+
+<div id="Category1" class="title container-fluid">
+  <h3>Actuary Export Batch</h3>
+</div>
+
+<br/>
+
+<form class="form-inline container-fluid">
+  <div class="form-group form-group-sm">
+    <label for="Param1">Parameter 1:</label>
+    <input type="text" class="form-control " id="Param1" placeholder="parameter 1">
+  </div>
+  <div class="form-group form-group-sm">
+    <label for="Param2">Parameter 2:</label>
+    <input type="text" class="form-control " id="Param1" placeholder="parameter 2">
+  </div>
+    <div class="form-group form-group-sm">
+    <label for="Param3">Parameter 3:</label>
+    <input type="text" class="form-control " id="Param1" placeholder="parameter 3">
+  </div>
+  <button type="submit" class="btn btn-success btn-sm">Run</button>
+</form>
+
+<br/>
+<div id="Category1" class="title container-fluid">
+  <h5>HINTS:</h5>
+</div>
+<div class="container-fluid">
+	<pre>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis nibh, venenatis nec pretium eget, posuere id augue. 
+Morbi ornare commodo tortor et gravida. In ultrices sapien fringilla, fermentum libero molestie, auctor eros. 
+Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ut auctor nisl. 
+Quisque scelerisque ligula quis tortor tincidunt, non maximus quam pretium. Donec tincidunt eget purus molestie faucibus. 
+	</pre>
+</div>
+<br/>
+<div class="row container-fluid ">
+<strong>
+	<div class="col-md-2"> Environment</div>
+	<div class="col-md-1">Run by</div>
+	<div class="col-md-2">Parameter 1</div>
+	<div class="col-md-2">Parameter 2</div>
+	<div class="col-md-2">Parameter 3</div>
+	<div class="col-md-1">Status</div>
+	<div class="col-md-2">Timestamp</div>
+</strong>
+</div>
+<br/>
+<div class="row container-fluid">
+	<div class="col-md-2"> STEST</div>
+	<div class="col-md-1">LEOVIK</div>
+	<div class="col-md-2">testparam</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-2"></div>
+	<div class="col-md-1"><font color="green">Success</font></div>
+	<div class="col-md-2">2017-05-26 10:21</div>
+</div>
+	
+
+    <!--<button class="api-button btn btn-success">Send API Request</button>
+    <pre class="response-place"></pre> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <script>
+  let apiRequest = jsonData =>  $.ajax({
+    url: "http://localhost:5000/api/run/ping/",
+    method: "GET",
+    data: jsonData
+  });
+  
+  
+  $(".api-button").on("click", () => {
+   $(".responsedate-place").text("value");
+   apiRequest({}).then((data) => {
+	//$(".response-place").text(JSON.stringify(data));
+	$(".response-place").text(data);
+   });
+  });
+ </script>
+  </body>
+</html>
