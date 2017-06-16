@@ -2,15 +2,15 @@ using Batches.Models;
 
 namespace Batches.Data
 {
-    public class GoldenBatch : Batch
+    public class GoldenBatch : BatchModel
     {
         public GoldenBatch()
         {
-            Name = "Reminder batch";
-            Server = @"\\swr11900";
-            WorkingDir = @"e:\waypointBatch\compl\wpExecuteables\Accounting";
-            BatchExe = @"e:\waypointBatch\compl\wpExecuteables\Accounting\AccountingBatchExecutor.exe";
-            BatchParams = @"DC_ExportInvoice -L401 %InvoiceSendDate%";
+            Name = "Golden Batch";
+
+            Args = @"\\swr11900 e:\waypointBatch\stest\wpExecuteables\Accounting e:\waypointBatch\stest\wpExecuteables\Accounting\AccountingBatchExecutor.exe";
+            
+            
         }
     }
 }
