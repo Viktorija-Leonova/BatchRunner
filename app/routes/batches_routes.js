@@ -22,6 +22,16 @@ module.exports = function(app, db) {
     });
   });
 
+  app.post('/batch', (req, res) => {
+    db.batches.find(req.body, function (err, docs) {
+      if (err) {
+        res.send({ 'error': `An error has occurred: ${err}` });
+      } else {
+        res.send(docs);
+      }
+    });
+  });
+
   app.put('/batch', (req, res) => {
     console.log(`req: ${JSON.stringify(req.body)}`);
     db.batches.insert(req.body, function (err, newDoc) {
