@@ -13,4 +13,12 @@ module.exports = function(app, db) {
       }
     });
   });
+
+  app.get('/test', (req, res) => {
+    res.send(test());
+  });
 };
+
+function test() {
+  return "test function";
+}

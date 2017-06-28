@@ -1,56 +1,26 @@
 module.exports = function(app, db) {
-  const { execFile, exec, spawn } = require('child_process');
 
-  app.post('/run', (req, res) => {
-    db.batches.findOne({ name: req.body.name }, function (err, doc) {
-      if (err || doc == null) {
-        res.send({ 'error': `Can't find batch by name [${req.body.name}]` });
-      } else {
-        console.log(doc);
-        db.logs.insert({
-          type : 'exec',
-          date : {
-            start : new Date(),
-            ended : new Date()
-          },
-          name : req.body.name,
-          log : 'test'
-        }, function (err, doc) {
-          res.send(doc.log)
-        });
-      }
-    });
+  app.post('/api/batches/find', (req, res) => {
+    db.batches.find(req.body)
+      .then((doc) => res.send(doc))
+      .catch((err) => res.send(err));
   });
 
-  app.post('/batch', (req, res) => {
-    db.batches.find(req.body, function (err, docs) {
-      if (err) {
-        res.send({ 'error': `An error has occurred: ${err}` });
-      } else {
-        res.send(docs);
-      }
-    });
+  app.get('/api/batches/:name', (req, res) => {
+    db.batches.findOne({ name: req.params.name })
+      .then((doc) => res.send(doc))
+      .catch((err) => res.send(err));
   });
 
-  app.put('/batch', (req, res) => {
-    console.log(`req: ${JSON.stringify(req.body)}`);
-    db.batches.insert(req.body, function (err, newDoc) {
-      if (err) {
-        res.send({ 'error': `An error has occurred: ${err}` });
-      } else {
-        res.send(newDoc);
-      }
-    });
-  });
-
-  app.get('/batch/:name', (req, res) => {
-    db.batches.findOne({ name: req.params.name }, function (err, doc) {
-      if (err) {
-        res.send({ 'error': 'An error has occurred' });
-      } else {
-        res.send(doc);
-      }
-    });
+  app.put('/api/batches', (req, res) => {
+    if (!validate(req.body)) res.send({'error': 'batch is invalid'})
+    db.batches.insert(req.body)
+      .then((doc) => res.send(doc))
+      .catch((err) => res.send(err));
   });
 
 };
+
+function validate(batch) {
+  return batch.name != null && batch.script != null;
+}
